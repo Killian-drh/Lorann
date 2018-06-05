@@ -36,7 +36,7 @@ public class Game extends JPanel implements ActionListener {
 	public Game() {
 		setFocusable(true);
 		
-		gamelooptimer = new Timer(10, this);
+		gamelooptimer = new Timer(5, this);
 		gamelooptimer.start();
 		
 		this.setBackground(Color.BLACK);

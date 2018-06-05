@@ -49,6 +49,7 @@ public class Player extends GlobalPosition{
 		
 	
 		Collision();
+		
 	}
 	
 	
@@ -63,7 +64,9 @@ public class Player extends GlobalPosition{
 			
 				velX=0;
 				velY=0;
-				System.out.println("Collision !"+ "Perdu");		
+				System.out.println("Collision !"+ "Perdu");	
+				playerimage = "/Images/LorannD.jpg";
+				
 				}
 		}
 	}
@@ -77,21 +80,21 @@ public class Player extends GlobalPosition{
 		int key = e.getKeyCode();
 		
 		if (key == KeyEvent.VK_RIGHT) {
-			velX = 2;
+			velX = 3;
 			velY = 0;
 		playerimage = "/Images/lorann_r.png";
 			
 		}else if (key == KeyEvent.VK_LEFT) {
-			velX = -2;
+			velX = -3;
 			velY = 0;
 		playerimage = "/Images/lorann_l.png";
 			
 		}else if (key == KeyEvent.VK_DOWN) {
-			velY = 2;
+			velY = 3;
 			velX = 0;
 			playerimage = "/Images/lorann_b.png";
 		}else if (key == KeyEvent.VK_UP) {
-			velY = -2;
+			velY = -3;
 			velX = 0;
 			playerimage = "/Images/lorann_u.png";
 		}else if (key == KeyEvent.VK_SPACE) {

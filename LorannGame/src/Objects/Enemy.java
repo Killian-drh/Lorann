@@ -22,6 +22,7 @@ public class Enemy extends GlobalPosition{
 	
 	public void update() {
 		x += speed;
+	
 		if (x > Main.WIDTH - 64) {
 			speed = -5 ;
 		}
@@ -29,7 +30,8 @@ public class Enemy extends GlobalPosition{
 			speed = 5;
 		}
 		
-}
+				
+	}
 	
 	
 	public Rectangle getBounds() {
