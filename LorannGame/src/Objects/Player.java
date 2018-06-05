@@ -12,7 +12,7 @@ import javax.swing.ImageIcon;
 
 
 import Game.GlobalPosition;
-import Input.Controller;
+import Input.ControllerEnemy;
 import Game.Main;
 
 
@@ -25,7 +25,7 @@ public class Player extends GlobalPosition{
 	int velX = 0;
 	int velY = 0;
 	
-	private LinkedList<Enemy> monster = Controller.getEnemyBounds();
+	private LinkedList<Enemy> monster = ControllerEnemy.getEnemyBounds();
 	
 	public Player(int x, int y) {
 		super(x, y);
@@ -44,7 +44,7 @@ public class Player extends GlobalPosition{
 		if (x < 32) { x = 32;}
 		if (x > 570){ x = 570;}
 		if (y < 32) { y = 32;}
-		if (y > (Main.HEIGHT -96)) { y = (Main.HEIGHT -96);}
+		if (y > (Main.HEIGHT -192)) { y = (Main.HEIGHT -192);}
 		
 		
 	

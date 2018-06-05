@@ -6,17 +6,15 @@ import java.util.LinkedList;
 import Objects.Enemy;
 
 
-public class Controller {
+public class ControllerEnemy {
 
 	static LinkedList<Enemy> monster = new LinkedList<Enemy>();
 	
 	Enemy tempEnemy;
 	
-	public Controller() {
+	public ControllerEnemy() {
 		addEnemy(new Enemy(300,150));
-		addEnemy(new Enemy(400,50));
-		addEnemy(new Enemy(32,250));
-		addEnemy(new Enemy(0, 350));
+
 		
 
 		

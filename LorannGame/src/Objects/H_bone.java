@@ -9,10 +9,10 @@ import javax.swing.ImageIcon;
 import Game.GlobalPosition;
 import Game.Main;
 
-public class V_bone extends GlobalPosition{
+public class H_bone extends GlobalPosition{
 
-	private String imageOS = "/Images/vertical_bone.png";
-	public V_bone(int x, int y) {
+	private String imageOS = "/Images/horizontal_bone.png";
+	public H_bone(int x, int y) {
 		super(x, y);
 	}
 
@@ -25,10 +25,10 @@ public class V_bone extends GlobalPosition{
 
 	public void draw(Graphics2D g2d) {
 		
-		g2d.drawImage(getVboneImage(), x , y , null);
+		g2d.drawImage(getHboneImage(), x , y , null);
 	}
 
-	public Image getVboneImage() {
+	public Image getHboneImage() {
 		ImageIcon i = new ImageIcon(getClass().getResource(imageOS));
 		return i.getImage();
 	}

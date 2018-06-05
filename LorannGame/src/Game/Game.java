@@ -9,8 +9,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
-import Input.Controller;
-import Input.ControllerV;
+import Input.ControllerEnemy;
+import Input.ControllerObject;
 import Input.KeyInput;
 //import Objects.Enemy;
 import Objects.Player;
@@ -23,9 +23,9 @@ public class Game extends JPanel implements ActionListener {
 	Timer gamelooptimer;
 	Player lorann;
 //	Enemy monster;
-	Controller c;
+	ControllerEnemy c;
 	//V_bone v;
-	ControllerV v;
+	ControllerObject o;
 	
 	// ** //
 	public Player getLorann() {
@@ -43,8 +43,8 @@ public class Game extends JPanel implements ActionListener {
 		
 		lorann = new Player(32, 32);
 		//monster = new Enemy(100,100);
-		c = new Controller();
-		v = new ControllerV();
+		c = new ControllerEnemy();
+		o = new ControllerObject();
 	
 		
 		addKeyListener(new KeyInput(lorann));
@@ -59,7 +59,7 @@ public class Game extends JPanel implements ActionListener {
 		lorann.draw(g2d);
 		//monster.draw(g2d);
 		c.draw(g2d);
-		v.draw(g2d);
+		o.draw(g2d);
 	}
 
 	
