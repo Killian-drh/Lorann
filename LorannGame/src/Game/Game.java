@@ -1,12 +1,15 @@
 package Game;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 import java.util.concurrent.TimeUnit;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -14,7 +17,10 @@ import Input.ControllerEnemy;
 import Input.ControllerObject;
 import Input.ControllerPurse;
 import Input.KeyInput;
+import Objects.Ball;
 import Objects.Bone;
+import Objects.Door;
+import Objects.Enemy;
 //import Objects.Enemy;
 import Objects.Player;
 import Objects.Purse;
@@ -27,16 +33,19 @@ public class Game extends JPanel implements ActionListener {
 
 	private boolean test = false;
 	private boolean test2 = false;
+	private int score;
+	public boolean balltest = false;
+	
+	private LinkedList<Enemy> monster = ControllerEnemy.getEnemyBounds();
 	
 	Timer gamelooptimer;
 	Player lorann;
-//	Enemy monster;
 	ControllerEnemy c;
-	//V_bone v;
 	ControllerObject o;
-	//Purse p;
 	Purse p;
 	Purse p2;
+	Door d;
+	Ball b;
 
 	
 	// ** //
@@ -52,16 +61,19 @@ public class Game extends JPanel implements ActionListener {
 		gamelooptimer.start();
 		
 		this.setBackground(Color.BLACK);
+		// ** //
 		
+		                 
+		        
+	   
+		//**//
 		lorann = new Player(32, 32);
-		//monster = new Enemy(100,100);
 		c = new ControllerEnemy();
 		o = new ControllerObject();
-		//p = new ControllerPurse();
 		p = new Purse(128,256);
 		p2 = new Purse(192,192);
-		 
-		
+		d = new Door(288,0);
+		b = new Ball(450,250);
 		
 		addKeyListener(new KeyInput(lorann));
 	}
@@ -72,25 +84,105 @@ public class Game extends JPanel implements ActionListener {
 		
 		Graphics2D g2d = (Graphics2D) g;
 		
+		Font font = new Font("Game Over", Font.BOLD, 80);
+	    g2d.setFont(font);
+	    g2d.setColor(Color.YELLOW);          
+	    g2d.drawString("Score : " +score, 32, 400); 
+	    
 		lorann.draw(g2d);
-		//monster.draw(g2d);
+
+
 		c.draw(g2d);
 		o.draw(g2d);
+		p.draw(g2d);
+		p2.draw(g2d);
+		d.draw(g2d);
+		b.draw(g2d);
 		
-		if(lorann.x +32 != p.x +6 && lorann.y -32 != p.y -6)
+		if (lorann.getBoundsPlayer().intersects(p.PursegetBounds())) 
+			{
+				System.out.println("touche purse");	
+				p.x = -100; 
+				p.y = -100;
+				score += 650;
+				System.out.println("score : " +score);
+			}
+		if (lorann.getBoundsPlayer().intersects(p2.PursegetBounds())) 
+			{
+					
+				System.out.println("touche purse");	
+				p2.x = -100; 
+				p2.y = -100;
+				
+				score += 650;
+				System.out.println("score : " +score);
+			}
+		
+		if (lorann.getBoundsPlayer().intersects(b.BallgetBounds())) 
 		{
-			p.draw(g2d);
+				
+			System.out.println("touche ball");	
+			b.x = -120; 
+			b.y = -120;
 			
-		}else {p.x = -100; p.y = -100;} 
-	
+			balltest = true;
+			
+		}
 		
-		if(lorann.x +32 != p2.x +6 && lorann.y -32 != p2.y -6)
+		if (balltest != false)
 		{
-			p2.draw(g2d);
+			d.door = "/Images/gate_open.png";
+		}
 		
-		}else {p2.x = -100; p2.y = -100;}
-	
-	}
+		for(int i = 0 ; i < monster.size(); i++) {
+			
+			if (lorann.getBoundsPlayer().intersects(monster.get(i).EnemygetBounds())) {
+			
+				lorann.x= 32;
+				lorann.y= 32;
+				lorann.velX = 0;
+				lorann.velY = 0;
+				 
+				System.out.println("Perdu");	
+				lorann.playerimage = "/Images/LorannD.jpg";
+				d.door = "/Images/gate_closed.png";
+				
+				score = 0;
+				balltest  = false;
+				p.x = 128; 
+				p.y = 256;
+				p2.x = 192; 
+				p2.y = 192;
+				b.x = 450;
+				b.y = 250;
+				
+			}
+			
+		}
+		
+		if (lorann.getBoundsPlayer().intersects(d.DoorgetBounds()) && balltest != false) 
+		{
+				
+			System.out.println("Win");	
+			lorann.x = 32; 
+			lorann.y = 32;
+			lorann.velX = 0;
+			lorann.velY = 0;
+			 
+			d.door = "/Images/gate_closed.png";
+			
+			score = 0;
+			balltest  = false;
+			p.x = 128; 
+			p.y = 256;
+			p2.x = 192; 
+			p2.y = 192;
+			b.x = 450;
+			b.y = 250;
+			
+		}
+			
+		}
 
 	
 	@Override

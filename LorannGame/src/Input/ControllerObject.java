@@ -50,7 +50,13 @@ public class ControllerObject {
 			i += 31;
 		}
 		
-		for (int i = 32; i < (Main.WIDTH - 40); i++)
+		for (int i = 32; i < 288 ; i++)
+		{
+			addHbone(new H_bone(i,0));
+			i+=31;
+		}
+		
+		for (int i = 320; i < (Main.WIDTH - 40); i++)
 		{
 			addHbone(new H_bone(i,0));
 			i += 31;

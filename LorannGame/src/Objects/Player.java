@@ -10,8 +10,8 @@ import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
-
-
+import Objects.Ball;
+import Game.Game;
 import Game.GlobalPosition;
 import Input.ControllerEnemy;
 import Input.ControllerObject;
@@ -22,11 +22,13 @@ import Game.Main;
 
 public class Player extends GlobalPosition{
 
-	private String playerimage = "/Images/lorann_r.png";
+	public String playerimage = "/Images/lorann_r.png";
 
+	Game g;
 	Player pl;
 	Purse p;
 	ControllerPurse t;
+	Ball b;
 	
 	private boolean test = true;
 	
@@ -41,8 +43,8 @@ public class Player extends GlobalPosition{
 
 
 
-	int velX = 0;
-	int velY = 0;
+	public int velX = 0;
+	public int velY = 0;
 	
 	private LinkedList<Enemy> monster = ControllerEnemy.getEnemyBounds();
 	private LinkedList<Purse> purse = ControllerPurse.getPurseBounds();
@@ -63,14 +65,15 @@ public class Player extends GlobalPosition{
 		
 	// ** collision window ** // 
 	
-		if (x < 32) { x = 32;}
+		if (x < 31 ) { x = 31;} 
+		
 		if (x > 570){ x = 570;}
-		if (y < 32) { y = 32;}
+		if (y < 31 ) { y = 31;}
 		if (y > (Main.HEIGHT -192)) { y = (Main.HEIGHT -192);}
 		
 		
 	
-		CollisionEnemy();
+		//CollisionEnemy();
 		//CollisionPurse();
 		
 	}
@@ -79,7 +82,7 @@ public class Player extends GlobalPosition{
 	// ** collision ** ///
 	
 	
-	public void CollisionEnemy() {
+	/*public void CollisionEnemy() {
 		
 		for(int i = 0 ; i < monster.size(); i++) {
 			
@@ -93,7 +96,7 @@ public class Player extends GlobalPosition{
 			}
 		}
 	
-	}
+	}*/
 
 	/// *** ///
 	

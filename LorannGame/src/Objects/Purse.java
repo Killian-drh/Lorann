@@ -29,11 +29,11 @@ public class Purse extends GlobalPosition{
 	
 	}
 	
-	/*
+	
 	public Rectangle PursegetBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}
-*/
+
 
 	public void draw(Graphics2D g2d) {
 		

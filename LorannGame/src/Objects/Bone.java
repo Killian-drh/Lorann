@@ -10,7 +10,7 @@ import Game.GlobalPosition;
 
 public class Bone extends GlobalPosition{
 
-	private String bone = "/images/crystal_ball.png";
+	private String bone = "/images/bone.png";
 	
 	public Bone(int x, int y) {
 		super(x, y);
@@ -22,17 +22,17 @@ public class Bone extends GlobalPosition{
 		
 	}
 	
-	public Rectangle BallgetBounds() {
+	public Rectangle BonegetBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}
 
 
 	public void draw(Graphics2D g2d) {
 		
-		g2d.drawImage(getPurseImage(), x , y , null);
+		g2d.drawImage(getBoneImage(), x , y , null);
 	}
 
-	public Image getPurseImage() {
+	public Image getBoneImage() {
 		ImageIcon i = new ImageIcon(getClass().getResource(bone));
 		return i.getImage();
 	}
