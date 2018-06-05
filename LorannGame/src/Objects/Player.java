@@ -95,36 +95,6 @@ public class Player extends GlobalPosition{
 	
 	}
 
-/*public void CollisionPurse() {
-
-	
-	if (x == t.getPx())
-	{
-		System.out.println("touche");
-	}
-	
-		if (test == true) 
-		{
-
-			for(int i = 0 ; i < purse.size(); i++) {
-				
-				if (getBoundsPlayer().intersects(purse.get(i).PursegetBounds())) {
-				
-					System.out.println("+1");
-					t.setPx(-10);
-					t.setPy(-10);
-					test = false;
-			}
-			
-		}
-		}
-		
-	
-}*/
-	
-	
-	
-	
 	/// *** ///
 	
 	public void keyPressed(KeyEvent e) {

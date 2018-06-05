@@ -22,7 +22,6 @@ public class ControllerPurse {
 	public ControllerPurse()
 	{
 		// ** add purse ** //
-
 		
 			addPurse(new Purse(getPx(), getPy()));
 			addPurse(new Purse(430,(Main.HEIGHT -192)));

@@ -59,7 +59,7 @@ public class Game extends JPanel implements ActionListener {
 		o = new ControllerObject();
 		//p = new ControllerPurse();
 		p = new Purse(128,256);
-		p2 = new Purse(256,128);
+		p2 = new Purse(192,192);
 		 
 		
 		
@@ -77,14 +77,14 @@ public class Game extends JPanel implements ActionListener {
 		c.draw(g2d);
 		o.draw(g2d);
 		
-		if(lorann.x != p.x && lorann.y != p.y)
+		if(lorann.x +32 != p.x +6 && lorann.y -32 != p.y -6)
 		{
 			p.draw(g2d);
 			
 		}else {p.x = -100; p.y = -100;} 
 	
 		
-		if(lorann.x != p2.x && lorann.y != p2.y)
+		if(lorann.x +32 != p2.x +6 && lorann.y -32 != p2.y -6)
 		{
 			p2.draw(g2d);
 		
