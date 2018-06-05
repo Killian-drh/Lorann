@@ -7,18 +7,20 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Game.GlobalPosition;
-import Game.Main;
 
 public class V_bone extends GlobalPosition{
 
 	private String imageOS = "/Images/vertical_bone.png";
+	
+	// ** Constructor ** //
+	
 	public V_bone(int x, int y) {
 		super(x, y);
 	}
 
-	public void update() {
+	// ** Methods ** //
+	// ** Bounds ** //
 	
-}
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}

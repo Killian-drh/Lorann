@@ -1,5 +1,6 @@
 package Game;
 
+// ** Global Position Class ** //
 public class GlobalPosition {
 
 	

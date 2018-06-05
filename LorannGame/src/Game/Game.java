@@ -7,18 +7,18 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
+//import java.util.concurrent.TimeUnit;
 
-import javax.swing.JLabel;
+
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import Input.ControllerEnemy;
 import Input.ControllerObject;
-import Input.ControllerPurse;
+
 import Input.KeyInput;
 import Objects.Ball;
-import Objects.Bone;
+//import Objects.Bone;
 import Objects.Door;
 import Objects.Enemy;
 //import Objects.Enemy;
@@ -31,13 +31,15 @@ import Objects.Purse;
 public class Game extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
-	private boolean test = false;
-	private boolean test2 = false;
+	
+	// ** Variables ** //
 	private int score;
 	public boolean balltest = false;
+	private String statement = "";
 	
 	private LinkedList<Enemy> monster = ControllerEnemy.getEnemyBounds();
 	
+	// ** Class Calling ** //
 	Timer gamelooptimer;
 	Player lorann;
 	ControllerEnemy c;
@@ -48,12 +50,12 @@ public class Game extends JPanel implements ActionListener {
 	Ball b;
 
 	
-	// ** //
+	// ** Getters ** //
 	public Player getLorann() {
 		return lorann;
 	}
 
-
+ // ** Constructor ** //
 	public Game() {
 		setFocusable(true);
 		
@@ -66,7 +68,8 @@ public class Game extends JPanel implements ActionListener {
 		                 
 		        
 	   
-		//**//
+		//** Objects Instantiation ** //
+		
 		lorann = new Player(32, 32);
 		c = new ControllerEnemy();
 		o = new ControllerObject();
@@ -78,6 +81,7 @@ public class Game extends JPanel implements ActionListener {
 		addKeyListener(new KeyInput(lorann));
 	}
 	
+	// ** Methods **//
 	
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -89,9 +93,28 @@ public class Game extends JPanel implements ActionListener {
 	    g2d.setColor(Color.YELLOW);          
 	    g2d.drawString("Score : " +score, 32, 400); 
 	    
-		lorann.draw(g2d);
+	    lorann.draw(g2d);
+	    
+	    if (statement == "Lose")
+	    {
+	    	Font Etat = new Font("Game Over", Font.BOLD, 60);
+		    g2d.setFont(Etat);
+		    g2d.setColor(Color.RED);          
+		    g2d.drawString("Last Game : " +statement, 352, 400); 
+			
+	    }
+	    else if (statement == "Win")
+	    {
+	    	Font Etat = new Font("Game Over", Font.BOLD, 60);
+		    g2d.setFont(Etat);
+		    g2d.setColor(Color.GREEN);          
+		    g2d.drawString("Last Game : " +statement, 352, 400); 
+			
+	    }
+	    
 
-
+	    // ** drawing ** //
+	    
 		c.draw(g2d);
 		o.draw(g2d);
 		p.draw(g2d);
@@ -99,9 +122,11 @@ public class Game extends JPanel implements ActionListener {
 		d.draw(g2d);
 		b.draw(g2d);
 		
+		
+		// ** detection collision ** ///
 		if (lorann.getBoundsPlayer().intersects(p.PursegetBounds())) 
 			{
-				System.out.println("touche purse");	
+				
 				p.x = -100; 
 				p.y = -100;
 				score += 650;
@@ -110,7 +135,7 @@ public class Game extends JPanel implements ActionListener {
 		if (lorann.getBoundsPlayer().intersects(p2.PursegetBounds())) 
 			{
 					
-				System.out.println("touche purse");	
+				
 				p2.x = -100; 
 				p2.y = -100;
 				
@@ -121,7 +146,7 @@ public class Game extends JPanel implements ActionListener {
 		if (lorann.getBoundsPlayer().intersects(b.BallgetBounds())) 
 		{
 				
-			System.out.println("touche ball");	
+				
 			b.x = -120; 
 			b.y = -120;
 			
@@ -143,18 +168,20 @@ public class Game extends JPanel implements ActionListener {
 				lorann.velX = 0;
 				lorann.velY = 0;
 				 
-				System.out.println("Perdu");	
+				System.out.println("Lose");	
 				lorann.playerimage = "/Images/LorannD.jpg";
 				d.door = "/Images/gate_closed.png";
 				
 				score = 0;
 				balltest  = false;
+				statement = "Lose";
 				p.x = 128; 
 				p.y = 256;
 				p2.x = 192; 
 				p2.y = 192;
 				b.x = 450;
 				b.y = 250;
+				 
 				
 			}
 			
@@ -168,11 +195,13 @@ public class Game extends JPanel implements ActionListener {
 			lorann.y = 32;
 			lorann.velX = 0;
 			lorann.velY = 0;
-			 
+			
+			
 			d.door = "/Images/gate_closed.png";
 			
 			score = 0;
 			balltest  = false;
+			statement = "Win";
 			p.x = 128; 
 			p.y = 256;
 			p2.x = 192; 
@@ -190,7 +219,5 @@ public class Game extends JPanel implements ActionListener {
 		repaint();
 		lorann.update();
 		c.update();
-		//p.update();
-		//p2.update();
 	}
 }

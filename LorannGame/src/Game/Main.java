@@ -1,10 +1,10 @@
 package Game;
 
-import java.awt.Color;
-import java.awt.Font;
+/*import java.awt.Color;
+import java.awt.Font;*/
 
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+//import javax.swing.JLabel;
 
 public class Main {
 
@@ -15,14 +15,15 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-		JFrame fenetre = new JFrame ("Lorann Game");
-			fenetre.pack();
-			fenetre.setSize(WIDTH,HEIGHT);
-			fenetre.setResizable(false);
-			fenetre.setLocationRelativeTo(null);
-			fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-			fenetre.add(new Game());
-			fenetre.setVisible(true);
+		// ** Creating Window ** //
+			JFrame Window = new JFrame ("Lorann Game");
+			Window.pack();
+			Window.setSize(WIDTH,HEIGHT);
+			Window.setResizable(false);
+			Window.setLocationRelativeTo(null);
+			Window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			Window.add(new Game());
+			Window.setVisible(true);
 		
 	}
 	

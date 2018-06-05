@@ -8,14 +8,21 @@ import Objects.Enemy;
 
 public class ControllerEnemy {
 
+	// ** Variables ** //
 	static LinkedList<Enemy> monster = new LinkedList<Enemy>();
 	
+	// ** Class calling ** //
 	Enemy tempEnemy;
 	
+	// ** Constructor ** //
 	public ControllerEnemy() {
 		addEnemy(new Enemy(300,150));
+		addEnemy(new Enemy(300,225));
 }
 	
+	// ** Methods ** //
+	
+	// ** Drawing Enemy ** //
 	public void draw(Graphics2D g2d) {
 		for(int i = 0; i < monster.size(); i++) {
 			tempEnemy = monster.get(i);
@@ -24,7 +31,7 @@ public class ControllerEnemy {
 		}
 		
 	}
-	
+	// ** Updater ** //
 	public void update() {
 		for (int i = 0; i < monster.size(); i++)
 		{

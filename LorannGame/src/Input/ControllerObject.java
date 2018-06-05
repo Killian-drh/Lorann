@@ -5,10 +5,8 @@ import java.util.LinkedList;
 
 import Game.Main;
 import Objects.Bone;
-import Objects.Enemy;
 import Objects.H_bone;
 import Objects.Player;
-import Objects.Purse;
 import Objects.V_bone;
 
 
@@ -16,12 +14,13 @@ import Objects.V_bone;
 public class ControllerObject {
 
 
-	//public boolean test = false;
+	// ** Variables ** //
 	
 	static LinkedList<V_bone> v = new LinkedList<V_bone>();
 	static LinkedList<H_bone> h = new LinkedList<H_bone>();
 	static LinkedList<Bone> b = new LinkedList<Bone>();
 	
+	// ** Class Calling ** //
 	V_bone tempvbone;
 	H_bone temphbone;
 	Bone tempBone;
@@ -35,6 +34,7 @@ public class ControllerObject {
 	
 
 	
+	// ** Constructor ** //
 	
 	public ControllerObject() {
 		
@@ -122,7 +122,7 @@ public class ControllerObject {
 		for (int i = 0; i < v.size(); i++)
 		{
 			tempvbone = v.get(i);
-			tempvbone.update();
+			
 	
 		}
 		
@@ -130,7 +130,7 @@ public class ControllerObject {
 		for (int i = 0; i < h.size(); i++)
 		{
 			temphbone = h.get(i);
-			temphbone.update();
+			
 		}
 		
 		// ** Purse ** //
@@ -141,7 +141,7 @@ public class ControllerObject {
 		{
 			tempBone = b.get(i);
 			System.out.println("je passe");
-			tempBone.update();
+			
 		}
 
 		//	CollisionPurse();
@@ -176,8 +176,6 @@ public class ControllerObject {
 		b.remove(bone);
 	}
 	
-	
-	// ** Purse **// 
 
 	
 	

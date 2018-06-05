@@ -33,7 +33,8 @@ public class Enemy extends GlobalPosition{
 				
 	}
 	
-	
+	// ** Methods ** //
+	// ** Bounds ** //
 	public Rectangle EnemygetBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}

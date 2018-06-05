@@ -14,9 +14,11 @@ public class Door extends GlobalPosition{
 	
 	public Door(int x, int y) {
 		super(x, y);
-		// TODO Auto-generated constructor stub
+		
 	}
 
+	// ** Methods ** //
+	// ** Bounds ** //
 	public Rectangle DoorgetBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}

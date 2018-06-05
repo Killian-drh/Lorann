@@ -17,11 +17,9 @@ public class Bone extends GlobalPosition{
 		
 	}
 
-	public void update() 
-	{
-		
-	}
 	
+	// ** Methods ** //
+	// ** Bounds ** //
 	public Rectangle BonegetBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}

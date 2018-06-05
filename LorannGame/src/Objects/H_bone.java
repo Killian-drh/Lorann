@@ -7,7 +7,7 @@ import java.awt.Rectangle;
 import javax.swing.ImageIcon;
 
 import Game.GlobalPosition;
-import Game.Main;
+
 
 public class H_bone extends GlobalPosition{
 
@@ -16,9 +16,8 @@ public class H_bone extends GlobalPosition{
 		super(x, y);
 	}
 
-	public void update() {
-	
-}
+		// ** Methods ** //
+		// ** Bounds ** //
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}
