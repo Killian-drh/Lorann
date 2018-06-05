@@ -6,7 +6,7 @@ import javax.swing.JFrame;
 
 public class Main {
 
-	public static final int WIDTH = 640, HEIGHT = 480;
+	public static final int WIDTH = 645, HEIGHT = 480;
 
 	
 	

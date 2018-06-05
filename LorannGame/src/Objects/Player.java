@@ -1,6 +1,7 @@
 package Objects;
 
 
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -9,10 +10,11 @@ import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
-
+import javax.swing.JLabel;
 
 import Game.GlobalPosition;
 import Input.ControllerEnemy;
+import Input.ControllerObject;
 import Game.Main;
 
 
@@ -20,12 +22,17 @@ import Game.Main;
 public class Player extends GlobalPosition{
 
 	private String playerimage = "/Images/lorann_r.png";
-	
 
+	Purse p;
+	ControllerObject t;
+	
 	int velX = 0;
 	int velY = 0;
 	
 	private LinkedList<Enemy> monster = ControllerEnemy.getEnemyBounds();
+	private LinkedList<Purse> purse = ControllerObject.getPurseBounds();
+	
+	//ControllerObject t;
 	
 	public Player(int x, int y) {
 		super(x, y);
@@ -48,7 +55,8 @@ public class Player extends GlobalPosition{
 		
 		
 	
-		Collision();
+		CollisionEnemy();
+		CollisionPurse();
 		
 	}
 	
@@ -56,22 +64,35 @@ public class Player extends GlobalPosition{
 	// ** collision ** ///
 	
 	
-	public void Collision() {
+	public void CollisionEnemy() {
 		
 		for(int i = 0 ; i < monster.size(); i++) {
 			
-			if (getBoundsPlayer().intersects(monster.get(i).getBounds())) {
+			if (getBoundsPlayer().intersects(monster.get(i).EnemygetBounds())) {
 			
 				velX=0;
 				velY=0;
-				System.out.println("Collision !"+ "Perdu");	
+				System.out.println("Perdu");	
 				playerimage = "/Images/LorannD.jpg";
 				
-				}
+			}
 		}
+	
 	}
 	
-	
+	public void CollisionPurse()
+	{
+		
+
+		for(int i = 0 ; i < purse.size(); i++) {
+			
+			if (getBoundsPlayer().intersects(purse.get(i).PursegetBounds())) {
+			
+				System.out.println("win");	
+
+			}
+		}
+	}
 	
 	
 	/// *** ///

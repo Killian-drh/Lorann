@@ -34,7 +34,7 @@ public class Enemy extends GlobalPosition{
 	}
 	
 	
-	public Rectangle getBounds() {
+	public Rectangle EnemygetBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}
 

@@ -14,11 +14,7 @@ public class ControllerEnemy {
 	
 	public ControllerEnemy() {
 		addEnemy(new Enemy(300,150));
-
-		
-
-		
-	}
+}
 	
 	public void draw(Graphics2D g2d) {
 		for(int i = 0; i < monster.size(); i++) {
@@ -33,6 +29,11 @@ public class ControllerEnemy {
 		for (int i = 0; i < monster.size(); i++)
 		{
 			tempEnemy = monster.get(i);
+			
+			if (tempEnemy.x < 64) {
+				removeEnemy(tempEnemy);
+			}
+			
 			tempEnemy.update();
 	
 		}

@@ -12,8 +12,10 @@ import javax.swing.Timer;
 import Input.ControllerEnemy;
 import Input.ControllerObject;
 import Input.KeyInput;
+import Objects.Bone;
 //import Objects.Enemy;
 import Objects.Player;
+//import Objects.Purse;
 //import Objects.V_bone;
 
 
@@ -26,6 +28,8 @@ public class Game extends JPanel implements ActionListener {
 	ControllerEnemy c;
 	//V_bone v;
 	ControllerObject o;
+	//Purse p;
+
 	
 	// ** //
 	public Player getLorann() {
@@ -36,7 +40,7 @@ public class Game extends JPanel implements ActionListener {
 	public Game() {
 		setFocusable(true);
 		
-		gamelooptimer = new Timer(5, this);
+		gamelooptimer = new Timer(10, this);
 		gamelooptimer.start();
 		
 		this.setBackground(Color.BLACK);
@@ -45,7 +49,9 @@ public class Game extends JPanel implements ActionListener {
 		//monster = new Enemy(100,100);
 		c = new ControllerEnemy();
 		o = new ControllerObject();
-	
+		//p = new Purse(200,125);
+		 
+		
 		
 		addKeyListener(new KeyInput(lorann));
 	}
@@ -60,6 +66,8 @@ public class Game extends JPanel implements ActionListener {
 		//monster.draw(g2d);
 		c.draw(g2d);
 		o.draw(g2d);
+		//p.draw(g2d);
+		//b.draw(g2d);
 	}
 
 	
@@ -69,5 +77,6 @@ public class Game extends JPanel implements ActionListener {
 		lorann.update();
 		//monster.update();
 		c.update();
+		
 	}
 }
