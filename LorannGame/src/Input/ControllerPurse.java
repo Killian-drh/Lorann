@@ -13,6 +13,9 @@ public class ControllerPurse {
 	
 	Player pl;
 	
+	 private int Px = 200;
+	 private int Py = 65;
+	 
 	public Purse tempPurse;
 
 	
@@ -21,7 +24,7 @@ public class ControllerPurse {
 		// ** add purse ** //
 
 		
-			addPurse(new Purse(200, 65));
+			addPurse(new Purse(getPx(), getPy()));
 			addPurse(new Purse(430,(Main.HEIGHT -192)));
 	}
 	
@@ -56,6 +59,22 @@ public class ControllerPurse {
 	
 	public static LinkedList<Purse> getPurseBounds(){
 		return p;
+	}
+
+	public int getPx() {
+		return Px;
+	}
+
+	public void setPx(int px) {
+		Px = px;
+	}
+
+	public int getPy() {
+		return Py;
+	}
+
+	public void setPy(int py) {
+		Py = py;
 	}
 	
 	// ** //

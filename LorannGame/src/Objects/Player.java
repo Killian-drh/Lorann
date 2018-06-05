@@ -24,6 +24,7 @@ public class Player extends GlobalPosition{
 
 	private String playerimage = "/Images/lorann_r.png";
 
+	Player pl;
 	Purse p;
 	ControllerPurse t;
 	
@@ -70,7 +71,7 @@ public class Player extends GlobalPosition{
 		
 	
 		CollisionEnemy();
-		CollisionPurse();
+		//CollisionPurse();
 		
 	}
 	
@@ -88,27 +89,38 @@ public class Player extends GlobalPosition{
 				velY=0;
 				System.out.println("Perdu");	
 				playerimage = "/Images/LorannD.jpg";
-				
+				pl.x = -100;
 			}
 		}
 	
 	}
-	
-public void CollisionPurse() {
 
+/*public void CollisionPurse() {
+
+	
+	if (x == t.getPx())
+	{
+		System.out.println("touche");
+	}
+	
+		if (test == true) 
+		{
+
+			for(int i = 0 ; i < purse.size(); i++) {
+				
+				if (getBoundsPlayer().intersects(purse.get(i).PursegetBounds())) {
+				
+					System.out.println("+1");
+					t.setPx(-10);
+					t.setPy(-10);
+					test = false;
+			}
+			
+		}
+		}
 		
 	
-		for(int i = 0 ; i < purse.size(); i++) {
-			
-			if (getBoundsPlayer().intersects(purse.get(i).PursegetBounds())) {
-			
-				
-				System.out.println("+1");
-							
-		}
-	
-	}
-}
+}*/
 	
 	
 	

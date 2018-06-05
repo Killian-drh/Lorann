@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.concurrent.TimeUnit;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -16,6 +17,7 @@ import Input.KeyInput;
 import Objects.Bone;
 //import Objects.Enemy;
 import Objects.Player;
+import Objects.Purse;
 //import Objects.Purse;
 //import Objects.V_bone;
 
@@ -23,6 +25,9 @@ import Objects.Player;
 public class Game extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
 
+	private boolean test = false;
+	private boolean test2 = false;
+	
 	Timer gamelooptimer;
 	Player lorann;
 //	Enemy monster;
@@ -30,7 +35,8 @@ public class Game extends JPanel implements ActionListener {
 	//V_bone v;
 	ControllerObject o;
 	//Purse p;
-	ControllerPurse p;
+	Purse p;
+	Purse p2;
 
 	
 	// ** //
@@ -51,8 +57,9 @@ public class Game extends JPanel implements ActionListener {
 		//monster = new Enemy(100,100);
 		c = new ControllerEnemy();
 		o = new ControllerObject();
-		p = new ControllerPurse();
-		//p = new Purse(200,125);
+		//p = new ControllerPurse();
+		p = new Purse(128,256);
+		p2 = new Purse(256,128);
 		 
 		
 		
@@ -69,8 +76,20 @@ public class Game extends JPanel implements ActionListener {
 		//monster.draw(g2d);
 		c.draw(g2d);
 		o.draw(g2d);
-		p.draw(g2d);
-		//b.draw(g2d);
+		
+		if(lorann.x != p.x && lorann.y != p.y)
+		{
+			p.draw(g2d);
+			
+		}else {p.x = -100; p.y = -100;} 
+	
+		
+		if(lorann.x != p2.x && lorann.y != p2.y)
+		{
+			p2.draw(g2d);
+		
+		}else {p2.x = -100; p2.y = -100;}
+	
 	}
 
 	
@@ -79,6 +98,7 @@ public class Game extends JPanel implements ActionListener {
 		repaint();
 		lorann.update();
 		c.update();
-		p.update();
+		//p.update();
+		//p2.update();
 	}
 }

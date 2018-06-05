@@ -15,29 +15,25 @@ import Input.ControllerPurse;
 
 public class Purse extends GlobalPosition{
 
-	private LinkedList<Purse> purse = ControllerPurse.getPurseBounds();
-	Player pl;
-	
-	private String imagePurse = "/Images/purse.png";
-	public static Rectangle p;
-	
-	int speed = 5;
-	
 	public Purse(int x, int y) {
 		super(x, y);
-		
+		// TODO Auto-generated constructor stub
 	}
+	
+	private String imagePurse = "/Images/purse.png";
+
+	
 	
 	public void update() 
 	{
 	
 	}
 	
-	
+	/*
 	public Rectangle PursegetBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}
-
+*/
 
 	public void draw(Graphics2D g2d) {
 		
@@ -45,16 +41,9 @@ public class Purse extends GlobalPosition{
 	}
 
 	public Image getPurseImage() {
-		ImageIcon i = new ImageIcon(getClass().getResource(getImagePurse()));
+		ImageIcon i = new ImageIcon(getClass().getResource(imagePurse));
 		return i.getImage();
 	}
 
-	public String getImagePurse() {
-		return imagePurse;
-	}
-
-	public void setImagePurse(String imagePurse) {
-		this.imagePurse = imagePurse;
-	}
 
 }
