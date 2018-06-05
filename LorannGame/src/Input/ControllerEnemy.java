@@ -31,7 +31,8 @@ public class ControllerEnemy {
 			tempEnemy = monster.get(i);
 			
 			if (tempEnemy.x < 64) {
-				removeEnemy(tempEnemy);
+				System.out.println("supprimer");
+				//removeEnemy(tempEnemy);
 			}
 			
 			tempEnemy.update();

@@ -1,7 +1,7 @@
 package Objects;
 
 
-import java.awt.Font;
+
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -10,11 +10,12 @@ import java.awt.event.KeyEvent;
 import java.util.LinkedList;
 
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
+
 
 import Game.GlobalPosition;
 import Input.ControllerEnemy;
 import Input.ControllerObject;
+import Input.ControllerPurse;
 import Game.Main;
 
 
@@ -24,13 +25,26 @@ public class Player extends GlobalPosition{
 	private String playerimage = "/Images/lorann_r.png";
 
 	Purse p;
-	ControllerObject t;
+	ControllerPurse t;
 	
+	private boolean test = true;
+	
+	public boolean isTest() {
+		return test;
+	}
+
+
+	public void setTest(boolean test) {
+		this.test = test;
+	}
+
+
+
 	int velX = 0;
 	int velY = 0;
 	
 	private LinkedList<Enemy> monster = ControllerEnemy.getEnemyBounds();
-	private LinkedList<Purse> purse = ControllerObject.getPurseBounds();
+	private LinkedList<Purse> purse = ControllerPurse.getPurseBounds();
 	
 	//ControllerObject t;
 	
@@ -80,19 +94,23 @@ public class Player extends GlobalPosition{
 	
 	}
 	
-	public void CollisionPurse()
-	{
-		
+public void CollisionPurse() {
 
+		
+	
 		for(int i = 0 ; i < purse.size(); i++) {
 			
 			if (getBoundsPlayer().intersects(purse.get(i).PursegetBounds())) {
 			
-				System.out.println("win");	
-
-			}
+				
+				System.out.println("+1");
+							
 		}
+	
 	}
+}
+	
+	
 	
 	
 	/// *** ///

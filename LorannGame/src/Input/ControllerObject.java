@@ -20,13 +20,11 @@ public class ControllerObject {
 	
 	static LinkedList<V_bone> v = new LinkedList<V_bone>();
 	static LinkedList<H_bone> h = new LinkedList<H_bone>();
-	static LinkedList<Purse> p = new LinkedList<Purse>();
 	static LinkedList<Bone> b = new LinkedList<Bone>();
 	
 	V_bone tempvbone;
 	H_bone temphbone;
 	Bone tempBone;
-	public Purse tempPurse;
 	Player pl;
 	
 	
@@ -64,10 +62,7 @@ public class ControllerObject {
 			i += 31;
 		}
 		
-		// ** add purse ** //
 		
-		addPurse(new Purse(200,65));
-		addPurse(new Purse(430,(Main.HEIGHT -192)));
 		
 		// ** add bones ** //
 		
@@ -76,15 +71,7 @@ public class ControllerObject {
 		addBone(new Bone((Main.WIDTH - 38 ),0));
 		addBone(new Bone((Main.WIDTH - 38 ),(Main.HEIGHT - 160)));
 		
-		for(int i = 0; i < 101; i++)
-		{
-			System.out.println(i);
-			
-			if (i > 99)
-			{
-				removePurse(tempPurse);
-			}
-		}
+		
 	}
 	
 	
@@ -108,12 +95,7 @@ public class ControllerObject {
 				temphbone.draw(g2d);
 			}
 		
-		// ** Purse ** //
-		for (int y = 0; y < p.size(); y++)
-		{
-			tempPurse = p.get(y);
-			tempPurse.draw(g2d);
-		}
+	
 		
 		// ** Bone ** //
 		for (int y = 0; y < b.size(); y++)
@@ -139,23 +121,20 @@ public class ControllerObject {
 		}
 		
 		// ** Horizontal Bone ** //
-		for (int y = 0; y < h.size(); y++)
+		for (int i = 0; i < h.size(); i++)
 		{
-			temphbone = h.get(y);
+			temphbone = h.get(i);
 			temphbone.update();
 		}
 		
 		// ** Purse ** //
-		for (int y = 0; y < p.size(); y++)
-		{
-			tempPurse = p.get(y);
-			tempPurse.update();
-		}
+	
 		
 		// ** Bone ** //
-		for (int y = 0; y < b.size(); y++)
+		for (int i = 0; i < b.size(); i++)
 		{
-			tempBone = b.get(y);
+			tempBone = b.get(i);
+			System.out.println("je passe");
 			tempBone.update();
 		}
 
@@ -193,20 +172,10 @@ public class ControllerObject {
 	
 	
 	// ** Purse **// 
-	
-	public void addPurse(Purse Purse) {
-		p.add(Purse);
-	}
-	
-	public void removePurse(Purse purse) {
-		p.remove(purse);
-	}
+
 	
 	
-	// ** Purse Bounds **//
-	public static LinkedList<Purse> getPurseBounds(){
-		return p;
-	}
+
 	
 }
 

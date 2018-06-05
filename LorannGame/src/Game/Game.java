@@ -11,6 +11,7 @@ import javax.swing.Timer;
 
 import Input.ControllerEnemy;
 import Input.ControllerObject;
+import Input.ControllerPurse;
 import Input.KeyInput;
 import Objects.Bone;
 //import Objects.Enemy;
@@ -29,6 +30,7 @@ public class Game extends JPanel implements ActionListener {
 	//V_bone v;
 	ControllerObject o;
 	//Purse p;
+	ControllerPurse p;
 
 	
 	// ** //
@@ -49,6 +51,7 @@ public class Game extends JPanel implements ActionListener {
 		//monster = new Enemy(100,100);
 		c = new ControllerEnemy();
 		o = new ControllerObject();
+		p = new ControllerPurse();
 		//p = new Purse(200,125);
 		 
 		
@@ -66,7 +69,7 @@ public class Game extends JPanel implements ActionListener {
 		//monster.draw(g2d);
 		c.draw(g2d);
 		o.draw(g2d);
-		//p.draw(g2d);
+		p.draw(g2d);
 		//b.draw(g2d);
 	}
 
@@ -75,8 +78,7 @@ public class Game extends JPanel implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		repaint();
 		lorann.update();
-		//monster.update();
 		c.update();
-		
+		p.update();
 	}
 }

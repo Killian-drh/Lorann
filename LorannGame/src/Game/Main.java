@@ -13,8 +13,6 @@ public class Main {
 	public static void main(String[] args) {
 		
 		
-		
-		
 		JFrame fenetre = new JFrame ("Lorann Game");
 			fenetre.pack();
 			fenetre.setSize(WIDTH,HEIGHT);
@@ -24,10 +22,6 @@ public class Main {
 			fenetre.add(new Game());
 			fenetre.setVisible(true);
 		
-		
-		
-		
-	
 	}
 	
 
