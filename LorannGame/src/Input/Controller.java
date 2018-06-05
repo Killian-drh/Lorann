@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import Objects.Enemy;
 
+
 public class Controller {
 
 	static LinkedList<Enemy> monster = new LinkedList<Enemy>();
@@ -15,14 +16,19 @@ public class Controller {
 		addEnemy(new Enemy(300,150));
 		addEnemy(new Enemy(400,50));
 		addEnemy(new Enemy(32,250));
+		addEnemy(new Enemy(0, 350));
+		
+
+		
 	}
 	
 	public void draw(Graphics2D g2d) {
 		for(int i = 0; i < monster.size(); i++) {
 			tempEnemy = monster.get(i);
-			
 			tempEnemy.draw(g2d);
+		
 		}
+		
 	}
 	
 	public void update() {
@@ -30,8 +36,9 @@ public class Controller {
 		{
 			tempEnemy = monster.get(i);
 			tempEnemy.update();
-			
+	
 		}
+		
 	}
 	
 	public void addEnemy(Enemy enemy) {
@@ -45,5 +52,6 @@ public class Controller {
 	public static LinkedList<Enemy> getEnemyBounds(){
 		return monster;
 	}
+	
 	
 }

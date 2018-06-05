@@ -10,9 +10,12 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 
 import Input.Controller;
+import Input.ControllerV;
 import Input.KeyInput;
-import Objects.Enemy;
+//import Objects.Enemy;
 import Objects.Player;
+//import Objects.V_bone;
+
 
 public class Game extends JPanel implements ActionListener {
 	private static final long serialVersionUID = 1L;
@@ -21,6 +24,8 @@ public class Game extends JPanel implements ActionListener {
 	Player lorann;
 //	Enemy monster;
 	Controller c;
+	//V_bone v;
+	ControllerV v;
 	
 	// ** //
 	public Player getLorann() {
@@ -39,6 +44,7 @@ public class Game extends JPanel implements ActionListener {
 		lorann = new Player(32, 32);
 		//monster = new Enemy(100,100);
 		c = new Controller();
+		v = new ControllerV();
 	
 		
 		addKeyListener(new KeyInput(lorann));
@@ -53,6 +59,7 @@ public class Game extends JPanel implements ActionListener {
 		lorann.draw(g2d);
 		//monster.draw(g2d);
 		c.draw(g2d);
+		v.draw(g2d);
 	}
 
 	

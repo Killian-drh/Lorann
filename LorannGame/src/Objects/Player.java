@@ -27,12 +27,6 @@ public class Player extends GlobalPosition{
 	
 	private LinkedList<Enemy> monster = Controller.getEnemyBounds();
 	
-	// ** Getters ** //
-		
-	// ** Setter ** // 
-	
-	//*********//
-	
 	public Player(int x, int y) {
 		super(x, y);
 		
@@ -41,6 +35,7 @@ public class Player extends GlobalPosition{
 	
 	public void update() {
 		
+	// ** movement **  //
 		x += velX;
 		y += velY;
 		
@@ -49,24 +44,34 @@ public class Player extends GlobalPosition{
 		if (x < 32) { x = 32;}
 		if (x > 570){ x = 570;}
 		if (y < 32) { y = 32;}
-		if (y > 370) { y = 370;}
+		if (y > (Main.HEIGHT -96)) { y = (Main.HEIGHT -96);}
 		
-	// ** collision ** ///
+		
+	
 		Collision();
 	}
+	
+	
+	// ** collision ** ///
+	
 	
 	public void Collision() {
 		
 		for(int i = 0 ; i < monster.size(); i++) {
 			
-			if (getBounds().intersects(monster.get(i).getBounds())) {
-				
-				velX = 0;
-				velX = 0;
+			if (getBoundsPlayer().intersects(monster.get(i).getBounds())) {
+			
+				velX=0;
+				velY=0;
 				System.out.println("Collision !"+ "Perdu");		
 				}
 		}
 	}
+	
+	
+	
+	
+	/// *** ///
 	
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
@@ -74,12 +79,12 @@ public class Player extends GlobalPosition{
 		if (key == KeyEvent.VK_RIGHT) {
 			velX = 2;
 			velY = 0;
-			playerimage = "/Images/lorann_r.png";
+		playerimage = "/Images/lorann_r.png";
 			
 		}else if (key == KeyEvent.VK_LEFT) {
 			velX = -2;
 			velY = 0;
-			playerimage = "/Images/lorann_l.png";
+		playerimage = "/Images/lorann_l.png";
 			
 		}else if (key == KeyEvent.VK_DOWN) {
 			velY = 2;
@@ -100,15 +105,24 @@ public class Player extends GlobalPosition{
 		
 	}
 	
-	public Rectangle getBounds() {
+	public Rectangle getBoundsPlayer() {
 		return new Rectangle(x, y, 32, 32);
 	}
 	
 	public void draw(Graphics2D g2d) {
+		
 		g2d.drawImage(getPlayerImage(), x, y,null);
 		//g2d.draw(getBounds());
 	}
 	
+	public void draw2(Graphics2D g2d) {
+		
+		playerimage = "/Images/lorann_u.png";
+		g2d.drawImage(getPlayerImage(), x, y,null);
+		//g2d.draw(getBounds());
+	}
+	
+
 
 	public Image getPlayerImage() {
 		ImageIcon i = new ImageIcon(getClass().getResource(playerimage));
@@ -116,8 +130,5 @@ public class Player extends GlobalPosition{
 	}
 
 
-	public void remove(Player lorann) {
-		lorann.remove(lorann);
-		
-	}
+
 }

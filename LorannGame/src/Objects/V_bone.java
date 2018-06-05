@@ -9,29 +9,16 @@ import javax.swing.ImageIcon;
 import Game.GlobalPosition;
 import Game.Main;
 
-public class Enemy extends GlobalPosition{
+public class V_bone extends GlobalPosition{
 
-	int speed = 5;
-	
-	private String image = "/Images/monster_1.png";
-	
-	public Enemy(int x, int y) {
+	private String imageOS = "/Images/vertical_bone.png";
+	public V_bone(int x, int y) {
 		super(x, y);
-		
 	}
-	
+
 	public void update() {
-		x += speed;
-		if (x > Main.WIDTH - 64) {
-			speed = -5 ;
-		}
-		if (x < 32) {
-			speed = 5;
-		}
-		
+	
 }
-	
-	
 	public Rectangle getBounds() {
 		return new Rectangle(x, y, 32, 32);
 	}
@@ -42,7 +29,7 @@ public class Enemy extends GlobalPosition{
 	}
 
 	public Image getEnemyImage() {
-		ImageIcon i = new ImageIcon(getClass().getResource(image));
+		ImageIcon i = new ImageIcon(getClass().getResource(imageOS));
 		return i.getImage();
 	}
 }
