@@ -5,6 +5,7 @@ import java.util.LinkedList;
 
 import Game.Main;
 import Objects.Bone;
+import Objects.Enemy;
 import Objects.H_bone;
 import Objects.Player;
 import Objects.V_bone;
@@ -76,6 +77,7 @@ public class ControllerObject {
 		addBone(new Bone(0,(Main.HEIGHT - 160)));
 		addBone(new Bone((Main.WIDTH - 38 ),0));
 		addBone(new Bone((Main.WIDTH - 38 ),(Main.HEIGHT - 160)));
+
 		
 		
 	}
@@ -176,7 +178,7 @@ public class ControllerObject {
 		b.remove(bone);
 	}
 	
-
+	
 	
 	
 

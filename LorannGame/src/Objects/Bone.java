@@ -21,7 +21,7 @@ public class Bone extends GlobalPosition{
 	// ** Methods ** //
 	// ** Bounds ** //
 	public Rectangle BonegetBounds() {
-		return new Rectangle(x, y, 32, 32);
+		return new Rectangle(x, y, 8, 8);
 	}
 
 

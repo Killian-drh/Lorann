@@ -18,6 +18,7 @@ import Input.ControllerObject;
 
 import Input.KeyInput;
 import Objects.Ball;
+import Objects.Bone;
 //import Objects.Bone;
 import Objects.Door;
 import Objects.Enemy;
@@ -39,6 +40,7 @@ public class Game extends JPanel implements ActionListener {
 	
 	private LinkedList<Enemy> monster = ControllerEnemy.getEnemyBounds();
 	
+	
 	// ** Class Calling ** //
 	Timer gamelooptimer;
 	Player lorann;
@@ -48,6 +50,8 @@ public class Game extends JPanel implements ActionListener {
 	Purse p2;
 	Door d;
 	Ball b;
+	Bone bone;
+	Bone bone2;
 
 	
 	// ** Getters ** //
@@ -77,6 +81,8 @@ public class Game extends JPanel implements ActionListener {
 		p2 = new Purse(192,192);
 		d = new Door(288,0);
 		b = new Ball(450,250);
+		bone = new Bone(32,75);
+		bone2 = new Bone(75, 32);
 		
 		addKeyListener(new KeyInput(lorann));
 	}
@@ -121,6 +127,8 @@ public class Game extends JPanel implements ActionListener {
 		p2.draw(g2d);
 		d.draw(g2d);
 		b.draw(g2d);
+		bone.draw(g2d);
+		bone2.draw(g2d);
 		
 		
 		// ** detection collision ** ///
@@ -210,7 +218,22 @@ public class Game extends JPanel implements ActionListener {
 			b.y = 250;
 			
 		}
+
 			
+			if (lorann.getBoundsPlayer().intersects(bone.BonegetBounds())){
+				
+				System.out.println("touched bone");
+				lorann.x = 32;
+				lorann.y = 32;
+			}
+			else if (lorann.getBoundsPlayer().intersects(bone2.BonegetBounds())){
+				
+				System.out.println("touched bone");
+				lorann.x = 32;
+				lorann.y = 32;
+			}
+	
+	
 		}
 
 	
