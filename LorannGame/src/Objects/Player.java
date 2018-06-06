@@ -6,8 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-
-
+import java.util.Set;
+import java.util.TreeSet;
 
 import javax.swing.ImageIcon;
 import Game.GlobalPosition;
@@ -17,6 +17,7 @@ import Game.Main;
 
 public class Player extends GlobalPosition{
 
+	private final Set<Integer> pressed = new TreeSet<Integer>();
 	public String playerimage = "/Images/lorann_r.png";
 
 
@@ -24,7 +25,7 @@ public class Player extends GlobalPosition{
 	// ** Variables ** //
 	public int velX = 0;
 	public int velY = 0;
-	
+
 	
 	// ** Constructor ** //
 	
@@ -60,33 +61,61 @@ public class Player extends GlobalPosition{
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		
-		if (key == KeyEvent.VK_RIGHT) {
-			velX = 3;
-			velY = 0;
-		playerimage = "/Images/lorann_r.png";
-			
-		}else if (key == KeyEvent.VK_LEFT) {
-			velX = -3;
-			velY = 0;
-		playerimage = "/Images/lorann_l.png";
-			
-		}else if (key == KeyEvent.VK_DOWN) {
-			velY = 3;
-			velX = 0;
-			playerimage = "/Images/lorann_b.png";
-		}else if (key == KeyEvent.VK_UP) {
-			velY = -3;
-			velX = 0;
-			playerimage = "/Images/lorann_u.png";
-		}else if (key == KeyEvent.VK_SPACE) {
-			velY=0;
-			velX=0;
+		pressed.add(key);
+		
+	    if (pressed.size() > 1) {
+	        Integer[] array = pressed.toArray(new Integer[] {});
+	        if (array[0] == KeyEvent.VK_LEFT && array[1] == KeyEvent.VK_UP) {
+	            velX = -4;
+	            velY = -4;
+	            playerimage = "/Images/lorann_ul.png";
+	        } else if (array[0] == KeyEvent.VK_UP && array[1] == KeyEvent.VK_RIGHT) {
+	            velX = 4;
+	            velY = -4;
+	            playerimage = "/Images/lorann_ur.png";
+	        } else if (array[0] == KeyEvent.VK_RIGHT && array[1] == KeyEvent.VK_DOWN) {
+	            velX = 2;
+	            velY = 2;
+	            playerimage = "/Images/lorann_br.png";
+	        } else if (array[0] == KeyEvent.VK_LEFT && array[1] == KeyEvent.VK_DOWN) {
+	            velX = -4;
+	            velY = 4;
+	            playerimage = "/Images/lorann_bl.png";
+	        }
+	    }else {
+	    	if (key == KeyEvent.VK_RIGHT) {
+				velX = 2;
+				velY = 0;
 			playerimage = "/Images/lorann_r.png";
-		}
+				
+			}else if (key == KeyEvent.VK_LEFT) {
+				velX = -2;
+				velY = 0;
+			playerimage = "/Images/lorann_l.png";
+				
+			}else if (key == KeyEvent.VK_DOWN) {
+				velY = 2;
+				velX = 0;
+				playerimage = "/Images/lorann_b.png";
+			}else if (key == KeyEvent.VK_UP) {
+				velY = -2;
+				velX = 0;
+				playerimage = "/Images/lorann_u.png";
+			}else if (key == KeyEvent.VK_SPACE) {
+				velY=0;
+				velX=0;
+				playerimage = "/Images/lorann_r.png";
+			}
+	    }
+		
 	}
 	
-	public void keyReleased(KeyEvent e) {
+	public void keyReleased(KeyEvent e) 
+	{
+		velX = 0;
+		velY = 0;
 		
+		pressed.remove(Integer.valueOf(e.getKeyCode()));
 	}
 	
 	public Rectangle getBoundsPlayer() {
