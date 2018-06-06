@@ -101,7 +101,7 @@ public class Game extends JPanel implements ActionListener {
 	    
 	    lorann.draw(g2d);
 	    
-	    if (statement == "Lose")
+	    if (statement == "Lost")
 	    {
 	    	Font Etat = new Font("Game Over", Font.BOLD, 60);
 		    g2d.setFont(Etat);
@@ -109,7 +109,7 @@ public class Game extends JPanel implements ActionListener {
 		    g2d.drawString("Last Game : " +statement, 352, 400); 
 			
 	    }
-	    else if (statement == "Win")
+	    else if (statement == "Won")
 	    {
 	    	Font Etat = new Font("Game Over", Font.BOLD, 60);
 		    g2d.setFont(Etat);
@@ -176,13 +176,13 @@ public class Game extends JPanel implements ActionListener {
 				lorann.velX = 0;
 				lorann.velY = 0;
 				 
-				System.out.println("Lose");	
+				System.out.println("Lost");	
 				lorann.playerimage = "/Images/LorannD.jpg";
 				d.door = "/Images/gate_closed.png";
 				
 				score = 0;
 				balltest  = false;
-				statement = "Lose";
+				statement = "Lost";
 				p.x = 128; 
 				p.y = 256;
 				p2.x = 192; 
@@ -209,7 +209,7 @@ public class Game extends JPanel implements ActionListener {
 			
 			score = 0;
 			balltest  = false;
-			statement = "Win";
+			statement = "Won";
 			p.x = 128; 
 			p.y = 256;
 			p2.x = 192; 
@@ -222,13 +222,13 @@ public class Game extends JPanel implements ActionListener {
 			
 			if (lorann.getBoundsPlayer().intersects(bone.BonegetBounds())){
 				
-				System.out.println("touched bone");
+				System.out.println("touched");
 				lorann.x = 32;
 				lorann.y = 32;
 			}
 			else if (lorann.getBoundsPlayer().intersects(bone2.BonegetBounds())){
 				
-				System.out.println("touched bone");
+				System.out.println("touched ");
 				lorann.x = 32;
 				lorann.y = 32;
 			}
